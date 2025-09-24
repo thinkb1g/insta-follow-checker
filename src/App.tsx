@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
-import { AppProvider } from './src/context/AppContext';
-import AdminPage from './src/pages/AdminPage';
-import UserPage from './src/pages/UserPage';
-import Header from './src/components/Header';
-import AdBanner from './src/components/AdBanner';
+import { AppProvider } from './context/AppContext';
+import AdminPage from './pages/AdminPage';
+import UserPage from './pages/UserPage';
+import Header from './components/Header';
+import AdBanner from './components/AdBanner';
 
 function App() {
 
