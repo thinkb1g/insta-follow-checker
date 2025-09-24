@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './src/context/AppContext';
 import AdminPage from './src/pages/AdminPage';
@@ -7,6 +7,9 @@ import Header from './src/components/Header';
 import AdBanner from './src/components/AdBanner';
 
 function App() {
+
+const [activeMenu, setActiveMenu] = useState('user');
+  
   return (
     <AppProvider>
       <HashRouter>
@@ -25,10 +28,13 @@ function App() {
             {/* Main Content */}
             <div className="flex-1 min-w-0">
               <main className="py-4 md:py-8">
-                <Routes>
+                {
+                  activeMenu === 'user' ? <UserPage /> : <AdminPage />
+                }
+                {/* <Routes>
                   <Route path="/" element={<UserPage />} />
                   <Route path="/admin" element={<AdminPage />} />
-                </Routes>
+                </Routes> */}
               </main>
             </div>
 

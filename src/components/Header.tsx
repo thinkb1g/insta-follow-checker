@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Header: React.FC = () => {
+const Header: React.FC = ({ activeMenu }) => {
   const activeLinkStyle = {
     color: '#6366f1',
     borderBottom: '2px solid #6366f1'
@@ -20,20 +20,20 @@ const Header: React.FC = () => {
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
-              <NavLink 
-                to="/" 
+              <div 
+                // to="/" 
                 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                style={({ isActive }) => isActive ? activeLinkStyle : undefined}
+                style={ activeMenu === 'user' ? activeLinkStyle : undefined}
               >
                 사용자
-              </NavLink>
-              <NavLink 
-                to="/admin" 
+              </div>
+              <div 
+                // to="/admin" 
                 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
-                style={({ isActive }) => isActive ? activeLinkStyle : undefined}
+                style={activeMenu === 'admin' ? activeLinkStyle : undefined}
               >
                 관리자
-              </NavLink>
+              </div>
             </div>
           </div>
         </div>
