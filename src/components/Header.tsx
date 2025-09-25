@@ -1,7 +1,11 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
-const Header: React.FC = ({ activeMenu }) => {
+interface HeaderProps {
+  activeMenu: 'user' | 'admin';
+  setActiveMenu: (menu: 'user' | 'admin') => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ activeMenu, setActiveMenu }) => {
   const activeLinkStyle = {
     color: '#6366f1',
     borderBottom: '2px solid #6366f1'
@@ -24,13 +28,15 @@ const Header: React.FC = ({ activeMenu }) => {
                 // to="/" 
                 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 style={ activeMenu === 'user' ? activeLinkStyle : undefined}
-              >
+                onClick={() => setActiveMenu('user')}
+                >
                 사용자
               </div>
               <div 
                 // to="/admin" 
                 className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 style={activeMenu === 'admin' ? activeLinkStyle : undefined}
+                onClick={() => setActiveMenu('admin')}
               >
                 관리자
               </div>

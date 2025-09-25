@@ -4,7 +4,7 @@ const instagramIdRegex = /^[a-zA-Z0-9._]{3,30}$/;
 /**
  * Stores the Google Sheet URL. This is now a no-op since the URL is hardcoded.
  */
-export const saveSheetUrl = (url: string): Promise<void> => {
+export const saveSheetUrl = (): Promise<void> => {
     return new Promise((resolve) => {
         resolve();
     });

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 import { AppProvider } from './context/AppContext';
 import AdminPage from './pages/AdminPage';
 import UserPage from './pages/UserPage';
@@ -12,9 +11,8 @@ const [activeMenu, setActiveMenu] = useState('user');
   
   return (
     <AppProvider>
-      <HashRouter>
         <div className="min-h-screen bg-gray-900 text-gray-100 font-sans flex flex-col">
-          <Header />
+          <Header activeMenu={activeMenu as 'user' | 'admin'} setActiveMenu={setActiveMenu} />
           <div className="flex-grow w-full max-w-7xl mx-auto flex">
             {/* Left Ad */}
             <aside className="hidden lg:flex flex-col justify-center w-40 flex-shrink-0 py-8 pr-8">
@@ -58,7 +56,6 @@ const [activeMenu, setActiveMenu] = useState('user');
             </div>
           </footer>
         </div>
-      </HashRouter>
     </AppProvider>
   );
 }

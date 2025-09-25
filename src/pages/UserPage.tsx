@@ -113,10 +113,10 @@ InstaFollow Checker로 확인
             </summary>
             <div className="mt-6 space-y-8 border-t border-gray-700 pt-6">
               <InstructionStep step={1} title="프로필 및 메뉴 접근">
-                <p>인스타그램 내 프로필 > 우상단 메뉴 클릭</p>
+                <p>인스타그램 내 프로필 &gt; 우상단 메뉴 클릭</p>
               </InstructionStep>
               <InstructionStep step={2} title="계정 센터 진입">
-                <p>내 계정 > 계정센터 > 내 정보 및 권한 진입</p>
+                <p>내 계정 &gt; 계정센터 &gt; 내 정보 및 권한 진입</p>
               </InstructionStep>
               <InstructionStep step={3} title="정보 내보내기">
                 <p>내 정보 내보내기</p>
@@ -129,7 +129,7 @@ InstaFollow Checker로 확인
               </InstructionStep>
               <InstructionStep step={6} title="설정값 수정">
                 <ul className="list-disc list-inside space-y-1">
-                  <li><b>정보 맞춤 설정:</b> 체크박스 모두 지우고 '연결활동 > 팔로워 및 팔로잉'만 체크된 상태로 저장</li>
+                  <li><b>정보 맞춤 설정:</b> 체크박스 모두 지우고 '연결활동 &gt; 팔로워 및 팔로잉'만 체크된 상태로 저장</li>
                   <li><b>기간:</b> 전체기간 선택</li>
                 </ul>
               </InstructionStep>
