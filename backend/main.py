@@ -14,7 +14,7 @@ app = FastAPI(title="Instagram Follow Checker API")
 # CORS 설정
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://thinkb1g.github.io/"],
+    allow_origins=["https://thinkb1g.github.io/", "http://localhost:5173", "http://localhost:4173", "http://localhost:3000"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
