@@ -3,6 +3,7 @@ import { useAppContext } from '../context/AppContext';
 import Card from '../components/Card';
 import Button from '../components/Button';
 import FileUpload from '../components/FileUpload';
+import ReactGA from "react-ga4";
 
 const InstructionStep: React.FC<{ step: number; title: string; children: React.ReactNode; imgSrc?: string }> = ({ step, title, children, imgSrc }) => (
     <div className="flex flex-col sm:flex-row gap-4 items-start">
@@ -28,6 +29,12 @@ const UserPage: React.FC = () => {
   const [copied, setCopied] = useState(false);
 
   const handleCheck = async () => {
+    ReactGA.event({
+      category: "User",
+      action: "click",
+      label: "click compare follow button"
+    });
+
     if (!followerListHtml) {
       setError('팔로워 리스트 HTML 파일을 업로드해주세요.');
       return;
@@ -64,6 +71,12 @@ const UserPage: React.FC = () => {
       });
       
       if(followers.size === 0) {
+        ReactGA.event({
+          category: "User",
+          action: "error",
+          label: "followers size 0"
+        });
+
         setError("업로드된 HTML에서 팔로워를 찾을 수 없습니다. 인스타그램에서 받은 정확한 파일인지 확인해주세요.");
         setIsLoading(false);
         return;
@@ -76,9 +89,21 @@ const UserPage: React.FC = () => {
       });
 
       setNonMutuals(results);
+
+      ReactGA.event({
+        category: "User",
+        action: "success",
+        label: "successful list comparison"
+      });
+      
     } catch (e) {
       console.error(e);
       setError('HTML 파일을 분석하는 중 오류가 발생했습니다. 유효한 파일인지 확인해주세요.');
+      ReactGA.event({
+        category: "User",
+        action: "error",
+        label: "html parsing error"
+      });
     } finally {
       setIsLoading(false);
     }
