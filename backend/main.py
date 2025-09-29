@@ -53,6 +53,10 @@ cl = Client()
 async def root():
     return {"message": "Instagram Follow Checker API"}
 
+@app.get("/healthz")
+async def health():
+    return {"status": "ok"}
+
 @app.post("/api/user-info", response_model=UserInfoResponse)
 async def get_user_info(request: UsernameRequest):
     """사용자명으로 사용자 정보 조회"""
